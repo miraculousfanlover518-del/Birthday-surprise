@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday!</title>
+    <title>Happy Birthday, My Love!</title>
     <style>
         * {
             margin: 0;
@@ -12,7 +12,7 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            background: linear-gradient(135deg, #ffb199 0%, #ff0844 100%);
             color: #fff;
             min-height: 100vh;
             display: flex;
@@ -33,10 +33,10 @@
         p.subtitle {
             font-size: 1.2rem;
             margin-bottom: 30px;
-            opacity: 0.9;
+            opacity: 0.95;
         }
         .card {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 25px;
@@ -44,11 +44,18 @@
             width: 100%;
             margin-bottom: 30px;
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: left;
+        }
+        .card h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
         }
         .card p {
             font-size: 1rem;
             line-height: 1.6;
+            margin-bottom: 15px;
         }
         .gallery {
             display: flex;
@@ -64,12 +71,13 @@
             height: 200px;
             object-fit: cover;
             border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             flex-shrink: 0;
+            border: 2px solid rgba(255,255,255,0.5);
         }
         .music-control {
             background: #fff;
-            color: #ff5e62;
+            color: #ff0844;
             border: none;
             padding: 12px 25px;
             font-size: 1rem;
@@ -92,35 +100,43 @@
 <body>
 
     <header>
-        <h1>Happy Birthday, My Love! 🎉</h1>
-        <p class="subtitle">You make my world brighter every single day.</p>
+        <h1>Happy Birthday, My Love! ❤️</h1>
+        <p class="subtitle">You're my greatest adventure and my happy place.</p>
     </header>
 
+    <!-- OUR STORY SECTION -->
     <div class="card">
-        <h2>To My Favorite Person</h2>
-        <br>
-        <p>Thank you for walking into my life and filling it with endless laughter, love, and joy. I hope this little surprise brings a huge smile to your face today. Here’s to celebrating you and all the amazing memories we share!</p>
+        <h2>How We Met & Our Story</h2>
+        <p><strong>The Day We Met:</strong> From the very first moment our paths crossed, I knew my life was about to change forever. You brought a warmth into my world that I never knew existed.</p>
+        <p><strong>Why You Mean Everything:</strong> Through every laugh, every late-night conversation, and every beautiful memory we've built, you have shown me what true love feels like. Thank you for being my safe space and my best friend.</p>
     </div>
 
-    <!-- PHOTO GALLERY: Replace the placeholder links with direct image links -->
+    <!-- PHOTO GALLERY -->
     <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500" alt="Memory 1">
-        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Memory 2">
-        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500" alt="Memory 3">
+        <!-- Replace the links below with your own direct image links -->
+        <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500" alt="Our Memory 1">
+        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Our Memory 2">
+        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500" alt="Our Memory 3">
     </div>
 
-    <!-- BACKGROUND MUSIC -->
-    <audio id="bgMusic" loop>
-        <!-- Replace this link with an MP3 direct link if you want a specific song -->
-        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+    <!-- BACKGROUND MUSIC (Taylor Swift - Love Story vibe audio) -->
+    <audio id="bgMusic" autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
-    <button class="music-control" onclick="toggleMusic()">🎵 Play Our Song</button>
+    <button class="music-control" onclick="toggleMusic()">🎵 Play / Pause Music</button>
 
     <script>
         const music = document.getElementById('bgMusic');
         const button = document.querySelector('.music-control');
+
+        // Attempt to auto-play on load
+        window.addEventListener('DOMContentLoaded', () => {
+            music.play().catch(error => {
+                console.log("Autoplay blocked by browser. User interaction needed.");
+            });
+        });
 
         function toggleMusic() {
             if (music.paused) {
@@ -128,7 +144,7 @@
                 button.textContent = "⏸️ Pause Music";
             } else {
                 music.pause();
-                button.textContent = "🎵 Play Our Song";
+                button.textContent = "🎵 Play Music";
             }
         }
     </script>
