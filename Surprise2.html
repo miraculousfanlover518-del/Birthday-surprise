@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To My Dearest Arya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF3EA;
+    --paper:#F6ECDF;
+    --blush:#F2CBD3;
+    --rose:#D98A99;
+    --wine:#7C2D3B;
+    --wine-deep:#5C1F2A;
+    --brown:#4A342E;
+    --gold:#C9A66B;
+    --line:#8B5D63;
+    --shadow: 0 18px 40px -12px rgba(74,52,46,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    font-family:'EB Garamond', serif;
+    background:
+      radial-gradient(ellipse at top left, rgba(242,203,211,0.35), transparent 55%),
+      radial-gradient(ellipse at bottom right, rgba(201,166,107,0.18), transparent 55%),
+      var(--cream);
+    color:var(--brown);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    overflow-x:hidden;
+  }
+
+  /* paper grain */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none;
+    opacity:0.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    mix-blend-mode:multiply;
+    z-index:1;
+  }
+
+  h1,h2,h3{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    margin:0 0 .3em;
+    color:var(--wine-deep);
+  }
+  .script{ font-family:'Caveat', cursive; }
+
+  /* ---------- browser mockup ---------- */
+  .browser{
+    width:100%;
+    max-width:560px;
+    background:var(--paper);
+    border-radius:18px;
+    box-shadow:var(--shadow), 0 0 0 1px rgba(139,93,99,0.15);
+    overflow:hidden;
+    position:relative;
+    z-index:2;
+  }
+  .browser-bar{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 16px;
+    background:linear-gradient(180deg, #FFFDF9, #F3E7D8);
+    border-bottom:1px solid rgba(139,93,99,0.18);
+  }
+  .dot{width:11px;height:11px;border-radius:50%;}
+  .dot.red{background:#EF6F63;}
+  .dot.yellow{background:#F3C15F;}
+  .dot.green{background:#8FBF7F;}
+  .browser-title{
+    flex:1;
+    text-align:center;
+    font-family:'Cormorant Garamond', serif;
+    font-size:14px;
+    letter-spacing:.06em;
+    color:var(--line);
+    margin-right:52px;
+  }
+
+  .stage{
+    position:relative;
+    min-height:640px;
+    padding:38px 30px 34px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+  }
+
+  /* floating florals */
+  .petal{
+    position:absolute;
+    top:-40px;
+    font-size:20px;
+    opacity:.55;
+    animation:fall linear infinite;
+    pointer-events:none;
+    color:var(--rose);
+    z-index:0;
+  }
+  @keyframes fall{
+    0%{ transform:translateY(-10%) rotate(0deg); }
+    100%{ transform:translateY(720px) rotate(200deg); }
+  }
+
+  .card-inner{ position:relative; z-index:2; width:100%; }
+
+  /* ---------- envelope ---------- */
+  .envelope-wrap{ perspective:1200px; }
+  .envelope{
+    width:280px;
+    max-width:80vw;
+    margin:0 auto;
+    position:relative;
+  }
+  .envelope-body{
+    background:#FDF7EE;
+    border:1px solid rgba(139,93,99,0.35);
+    border-radius:6px;
+    box-shadow:var(--shadow);
+    padding:26px 20px 34px;
+    position:relative;
+  }
+  .envelope-body::before,
+  .envelope-body::after{
+    content:"";
+    position:absolute;
+    top:0; width:0; height:0;
+    border-style:solid;
+  }
+  .envelope-flap{
+    position:absolute;
+    top:-1px; left:-1px; right:-1px;
+    height:0;
+    border-left:141px solid transparent;
+    border-right:141px solid transparent;
+    border-top:96px solid #F1E2CD;
+    filter:drop-shadow(0 3px 4px rgba(74,52,46,.15));
+  }
+  .to-line{
+    margin-top:70px;
+    font-family:'Caveat', cursive;
+    font-size:26px;
+    color:var(--wine);
+  }
+  .from-line{
+    font-family:'Caveat', cursive;
+    font-size:19px;
+    color:var(--line);
+    margin-top:4px;
+  }
+  .hearts-deco{
+    margin-top:10px;
+    letter-spacing:6px;
+    color:var(--rose);
+    font-size:13px;
+  }
+  .seal{
+    position:absolute;
+    left:50%; top:100%;
+    transform:translate(-50%,-52%);
+    width:64px; height:64px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #9c3a4a, var(--wine-deep) 70%);
+    box-shadow:0 6px 14px rgba(92,31,42,.5), inset 0 -3px 6px rgba(0,0,0,.25);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    border:none;
+    color:#F6DEC8;
+    font-size:11px;
+    line-height:1.2;
+    letter-spacing:.04em;
+    font-family:'EB Garamond', serif;
+    transition:transform .25s ease;
+  }
+  .seal:hover{ transform:translate(-50%,-52%) scale(1.06); }
+  .seal .heart-glyph{ font-size:20px; display:block; margin-bottom:2px; }
+
+  .envelope-hint{
+    margin-top:44px;
+    font-size:13px;
+    color:var(--line);
+    letter-spacing:.05em;
+    font-style:italic;
+  }
+
+  /* ---------- generic card ---------- */
+  .deco-line{
+    width:64px; height:1px;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin:14px auto;
+  }
+  p.body-text{
+    font-size:17px;
+    line-height:1.7;
+    color:var(--brown);
+    margin:0 0 14px;
+  }
+  .eyebrow{
+    font-family:'Caveat', cursive;
+    font-size:20px;
+    color:var(--rose);
+    letter-spacing:.03em;
+    margin-bottom:2px;
+  }
+
+  /* ---------- buttons ---------- */
+  .btn-row{
+    display:flex;
+    gap:14px;
+    justify-content:center;
+    margin-top:26px;
+    flex-wrap:wrap;
+  }
+  button{
+    font-family:'EB Garamond', serif;
+    cursor:pointer;
+  }
+  .btn{
+    border:1px solid var(--wine);
+    background:transparent;
+    color:var(--wine);
+    padding:11px 26px;
+    border-radius:999px;
+    font-size:15px;
+    letter-spacing:.03em;
+    transition:all .35s ease;
+  }
+  .btn.primary{
+    background:var(--wine);
+    color:#FDF3E7;
+    border-color:var(--wine);
+  }
+  .btn.primary:hover{ background:var(--wine-deep); }
+  .btn.ghost:hover{ background:rgba(124,45,59,0.08); }
+  .btn.grown{ font-size:20px; padding:16px 40px; box-shadow:0 8px 20px rgba(124,45,59,.28); }
+  .btn:disabled{ opacity:.4; cursor:default; }
+
+  .next-nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:28px;
+    width:100%;
+  }
+  .link-btn{
+    background:none; border:none;
+    color:var(--line);
+    font-size:14px;
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+
+  /* ---------- quiz ---------- */
+  .step-counter{
+    font-size:12px;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+  .quiz-options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:20px;
+    text-align:left;
+  }
+  .option{
+    border:1px solid rgba(124,45,59,0.3);
+    background:#FFFCF6;
+    padding:12px 16px;
+    border-radius:12px;
+    font-size:16px;
+    color:var(--brown);
+    text-align:left;
+    transition:all .25s ease;
+  }
+  .option:hover{ border-color:var(--wine); background:#FBEFE9; }
+  .option.picked{
+    background:var(--blush);
+    border-color:var(--wine);
+    color:var(--wine-deep);
+  }
+
+  /* ---------- photo cards ---------- */
+  .photo-card{
+    width:100%;
+    background:#fff;
+    padding:14px 14px 20px;
+    border-radius:4px;
+    box-shadow:var(--shadow);
+    transform:rotate(var(--tilt,-1.5deg));
+    max-width:290px;
+    margin:0 auto;
+  }
+  .photo-frame{
+    width:100%;
+    aspect-ratio:4/5;
+    background:
+      linear-gradient(135deg, var(--blush), #EAD6C8);
+    border-radius:2px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--wine);
+    font-family:'Caveat', cursive;
+    font-size:16px;
+    text-align:center;
+    padding:10px;
+    overflow:hidden;
+  }
+  .photo-frame img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .photo-caption{
+    font-family:'Caveat', cursive;
+    font-size:20px;
+    color:var(--brown);
+    margin-top:12px;
+  }
+  .lock-btn{
+    margin-top:14px;
+    font-size:14px;
+  }
+  .secret-msg{
+    margin-top:14px;
+    font-size:15px;
+    line-height:1.6;
+    color:var(--wine-deep);
+    background:var(--blush);
+    padding:14px;
+    border-radius:10px;
+    display:none;
+  }
+  .secret-msg.show{ display:block; animation:pop .35s ease; }
+  @keyframes pop{ from{ transform:scale(.94); opacity:0; } to{ transform:scale(1); opacity:1; } }
+
+  /* ---------- final letter ---------- */
+  .letter-card{
+    background:#FFFBF3;
+    border:1px solid rgba(139,93,99,.3);
+    box-shadow:var(--shadow);
+    padding:30px 24px;
+    text-align:left;
+    border-radius:4px;
+    background-image: repeating-linear-gradient(#FFFBF3 0px, #FFFBF3 27px, rgba(139,93,99,0.08) 28px);
+  }
+  .letter-sign{
+    font-family:'Caveat', cursive;
+    font-size:26px;
+    color:var(--wine);
+    margin-top:18px;
+    text-align:right;
+  }
+
+  .music-toggle{
+    position:fixed;
+    bottom:22px; right:22px;
+    z-index:20;
+    width:50px; height:50px;
+    border-radius:50%;
+    background:var(--wine);
+    color:#FDF3E7;
+    border:none;
+    box-shadow:0 8px 18px rgba(92,31,42,.4);
+    display:flex; align-items:center; justify-content:center;
+    font-size:18px;
+  }
+
+  .fade-in{ animation:fadeIn .5s ease; }
+  @keyframes fadeIn{ from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+
+  @media (prefers-reduced-motion: reduce){
+    .petal{ animation:none; display:none; }
+    .fade-in{ animation:none; }
+  }
+
+  @media (max-width:420px){
+    .stage{ padding:30px 18px 26px; min-height:600px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="browser">
+  <div class="browser-bar">
+    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+    <div class="browser-title">for-arya.html</div>
+  </div>
+
+  <div class="stage" id="stage">
+    <!-- floating petals injected by JS -->
+    <div class="card-inner" id="cardInner"></div>
+  </div>
+</div>
+
+<button class="music-toggle" id="musicToggle" title="Play / pause music">♪</button>
+<audio id="bgMusic" loop preload="none">
+  <!-- Add your own audio file here, e.g. Taylor Swift's "Lover", to a local /assets folder.
+       Copyrighted music can't be bundled in this file, so point src at your own mp3: -->
+  <source src="assets/lover.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+/* ============ DATA ============ */
+
+const quizQuestions = [
+  {
+    q: "Where do you feel most like yourself with me?",
+    options: ["On a long, aimless drive", "Cooking something terrible together", "Wrapped in a blanket, saying nothing", "Wherever there's good food nearby"]
+  },
+  {
+    q: "What's my most 'us' habit?",
+    options: ["Video calls that run three hours too long", "Sending each other songs at 2am", "Arguing about where to eat, then agreeing anyway", "Planning trips we haven't booked yet"]
+  },
+  {
+    q: "If we got a pet together, what would it be?",
+    options: ["A golden retriever, obviously", "A grumpy cat that only likes you", "Something dramatic, like a parrot", "We'd never agree, so — a goldfish"]
+  },
+  {
+    q: "Best version of a perfect Sunday with me?",
+    options: ["Slow breakfast, no plans, no rush", "A museum, then getting lost on the walk back", "Cooking a big meal and ruining the kitchen", "Doing absolutely nothing, together"]
+  },
+  {
+    q: "Where should we get lost together one day?",
+    options: ["Japan, obviously", "Somewhere with too many bookshops", "A tiny town nobody's heard of", "Anywhere, as long as it's the two of us"]
+  }
+];
+
+const surpriseSlides = [
+  {
+    eyebrow: "for your birthday",
+    title: "To the boy with the brilliant smile",
+    body: "Happy birthday, gadha. You have this way of walking into a room and making it feel warmer — like the light just decided to follow you around. I hope this year gives you exactly as much softness as you give everyone else."
+  },
+  {
+    eyebrow: "a love letter",
+    title: "My safe harbor",
+    body: "Whatever storm the day brings, you're the place I come back to. Not because you fix everything, but because with you I don't have to hold it together. You're my forever person, and I don't say that lightly."
+  },
+  {
+    eyebrow: "a little blessing",
+    title: "For everything ahead of you",
+    body: "May your work finally see how brilliant you are. May your body stay strong and your mind stay soft. May you keep laughing the way you do — loud, unfiltered, completely you. I'm rooting for every bit of your future."
+  },
+  {
+    eyebrow: "our story",
+    title: "The first call, and every one after",
+    body: "It started with a call from an airport — me, jetlagged and half-asleep, you keeping me company from home like it was nothing. You've been so patient teaching me things across all these miles. Someday we're getting properly lost in Japan together. I already know it'll be my favorite trip."
+  },
+  {
+    eyebrow: "a little roast",
+    title: "You absolute gadha",
+    body: "You are, without question, the single most gadha person I have ever loved — and somehow the cutest one too. I wouldn't trade your nonsense for anyone else's sense."
+  }
+];
+
+const photoMemories = [
+  { caption: "that one call that lasted till sunrise", secret: "I still remember watching the sky change color while you talked me through nothing at all. That's when I knew." },
+  { caption: "the trip we still talk about", secret: "You made everything less scary just by being next to me. I'd get lost with you anywhere." },
+  { caption: "just us, being ridiculous", secret: "This is my favorite kind of us — no occasion, no plan, just laughing at something dumb until it hurts." }
+];
+
+/* ============ STATE ============ */
+let quizIndex = 0;
+let quizAnswers = [];
+let slideIndex = 0;
+let photoIndex = 0;
+let musicStarted = false;
+
+const stageEl = document.getElementById('cardInner');
+const musicBtn = document.getElementById('musicToggle');
+const audioEl = document.getElementById('bgMusic');
+
+/* ============ PETALS ============ */
+function spawnPetals(){
+  const stage = document.getElementById('stage');
+  const glyphs = ['❀','✿','♡','❁'];
+  for(let i=0;i<9;i++){
+    const p = document.createElement('span');
+    p.className = 'petal';
+    p.textContent = glyphs[Math.floor(Math.random()*glyphs.length)];
+    p.style.left = Math.random()*100 + '%';
+    p.style.animationDuration = (9 + Math.random()*8) + 's';
+    p.style.animationDelay = (Math.random()*10) + 's';
+    p.style.fontSize = (14 + Math.random()*12) + 'px';
+    stage.appendChild(p);
+  }
+}
+spawnPetals();
+
+/* ============ MUSIC ============ */
+musicBtn.addEventListener('click', toggleMusic);
+function toggleMusic(){
+  if(audioEl.paused){
+    audioEl.play().catch(()=>{});
+    musicBtn.textContent = '❚❚';
+  } else {
+    audioEl.pause();
+    musicBtn.textContent = '♪';
+  }
+}
+function startMusicOnce(){
+  if(musicStarted) return;
+  musicStarted = true;
+  audioEl.play().then(()=>{ musicBtn.textContent = '❚❚'; }).catch(()=>{ /* autoplay blocked, user can tap the toggle */ });
+}
+
+/* ============ RENDER HELPERS ============ */
+function render(html){
+  stageEl.innerHTML = html;
+  stageEl.classList.remove('fade-in');
+  void stageEl.offsetWidth;
+  stageEl.classList.add('fade-in');
+}
+
+/* ============ ACT 0: ENVELOPE ============ */
+function renderEnvelope(){
+  render(`
+    <div class="envelope-wrap">
+      <div class="envelope">
+        <div class="envelope-body">
+          <div class="envelope-flap"></div>
+          <div class="to-line">To My Dearest Arya Singh</div>
+          <div class="from-line">— Anushka</div>
+          <div class="hearts-deco">˖⁺‧₊˚♡˚₊‧⁺˖</div>
+        </div>
+        <button class="seal" id="sealBtn">
+          <span class="heart-glyph">♥</span>Click to open
+        </button>
+      </div>
+      <div class="envelope-hint">tap the seal, my love</div>
+    </div>
+  `);
+  document.getElementById('sealBtn').addEventListener('click', ()=>{
+    startMusicOnce();
+    renderProposal(0);
+  });
+}
+
+/* ============ ACT I: PROPOSAL STEPS (0,1) then QUIZ (2..6) ============ */
+const proposalSteps = [
+  { title: "Before anything else…", question: "Will you be mine?" },
+  { title: "One more question.", question: "Will you marry me? 👀" }
+];
+
+function renderProposal(step){
+  const data = proposalSteps[step];
+  const noShrink = window.__noClicks ? window.__noClicks[step] || 0 : 0;
+  window.__noClicks = window.__noClicks || [0,0];
+  const clicks = window.__noClicks[step];
+  const yesScale = 1 + clicks*0.28;
+  const showNo = clicks < 3;
+
+  render(`
+    <div class="step-counter">step ${step+1} of 7</div>
+    <div class="eyebrow">${data.title}</div>
+    <h1>${data.question}</h1>
+    <div class="deco-line"></div>
+    <div class="btn-row" id="propRow">
+      <button class="btn primary ${clicks>0 ? 'grown':''}" id="yesBtn" style="transform:scale(${yesScale})">Yes</button>
+      ${showNo ? `<button class="btn ghost" id="noBtn">No</button>` : ``}
+    </div>
+  `);
+
+  document.getElementById('yesBtn').addEventListener('click', ()=>{
+    if(step < proposalSteps.length - 1){
+      renderProposal(step+1);
+    } else {
+      quizIndex = 0;
+      quizAnswers = [];
+      renderQuiz(0);
+    }
+  });
+
+  const noBtn = document.getElementById('noBtn');
+  if(noBtn){
+    noBtn.addEventListener('click', ()=>{
+      window.__noClicks[step]++;
+      renderProposal(step);
+    });
+  }
+}
+
+function renderQuiz(i){
+  const total = quizQuestions.length;
+  const overallStep = 2 + i; // steps 3-7 of 7
+  const data = quizQuestions[i];
+  render(`
+    <div class="step-counter">step ${overallStep+1} of 7</div>
+    <div class="eyebrow">just for fun</div>
+    <h2>${data.q}</h2>
+    <div class="quiz-options" id="optWrap">
+      ${data.options.map((opt, idx) => `<button class="option" data-idx="${idx}">${opt}</button>`).join('')}
+    </div>
+  `);
+
+  document.querySelectorAll('.option').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.option').forEach(b=>b.classList.remove('picked'));
+      btn.classList.add('picked');
+      quizAnswers[i] = btn.textContent;
+      setTimeout(()=>{
+        if(i < total - 1){
+          renderQuiz(i+1);
+        } else {
+          slideIndex = 0;
+          renderSurpriseSlide(0);
+        }
+      }, 420);
+    });
+  });
+}
+
+/* ============ ACT II: SURPRISE SLIDES ============ */
+function renderSurpriseSlide(i){
+  const s = surpriseSlides[i];
+  const isLast = i === surpriseSlides.length - 1;
+  render(`
+    <div class="eyebrow">${s.eyebrow}</div>
+    <h1>${s.title}</h1>
+    <div class="deco-line"></div>
+    <p class="body-text">${s.body}</p>
+    <div class="next-nav">
+      <span class="step-counter" style="margin:0;">${i+1} / ${surpriseSlides.length}</span>
+      <button class="btn primary" id="slideNext">${isLast ? 'Continue →' : 'Next →'}</button>
+    </div>
+  `);
+  document.getElementById('slideNext').addEventListener('click', ()=>{
+    if(!isLast){
+      renderSurpriseSlide(i+1);
+    } else {
+      photoIndex = 0;
+      renderPhoto(0);
+    }
+  });
+}
+
+/* ============ ACT III: PHOTOS ============ */
+function renderPhoto(i){
+  const p = photoMemories[i];
+  const isLast = i === photoMemories.length - 1;
+  const tilt = (i % 2 === 0) ? '-2deg' : '2deg';
+  render(`
+    <div class="eyebrow">memory ${i+1} of ${photoMemories.length}</div>
+    <div class="photo-card" style="--tilt:${tilt}">
+      <div class="photo-frame">
+        <!-- Replace this with: <img src="assets/photo${i+1}.jpg" alt=""> -->
+        photo ${i+1} goes here
+      </div>
+      <div class="photo-caption">${p.caption}</div>
+      <button class="btn ghost lock-btn" id="unlockBtn">tap to unlock the secret 🔓</button>
+      <div class="secret-msg" id="secretMsg">${p.secret}</div>
+    </div>
+    <div class="next-nav" style="justify-content:center;">
+      <button class="btn primary" id="photoNext" disabled>${isLast ? 'Read my letter →' : 'Next memory →'}</button>
+    </div>
+  `);
+
+  document.getElementById('unlockBtn').addEventListener('click', ()=>{
+    document.getElementById('secretMsg').classList.add('show');
+    document.getElementById('unlockBtn').disabled = true;
+    document.getElementById('unlockBtn').textContent = 'unlocked ♡';
+    document.getElementById('photoNext').disabled = false;
+  });
+
+  document.getElementById('photoNext').addEventListener('click', ()=>{
+    if(!isLast){
+      renderPhoto(i+1);
+    } else {
+      renderFinalLetter();
+    }
+  });
+}
+
+/* ============ FINAL LETTER ============ */
+function renderFinalLetter(){
+  render(`
+    <div class="eyebrow">my last words, for now</div>
+    <h1>Dearest Arya,</h1>
+    <div class="letter-card">
+      <p class="body-text">
+        If you've made it this far, thank you for humoring every silly question and every roast.
+        Underneath all of it is the simplest thing I know: I love you, completely and without
+        reservation. Not the easy parts of you — all of you. The gadha and the genius, the soft
+        mornings and the loud laughs.
+      </p>
+      <p class="body-text">
+        I promise you patience across every mile that separates us, and every mile we eventually
+        close. I promise Japan, and getting properly lost in it. I promise to keep choosing you,
+        on the easy days and the harder ones.
+      </p>
+      <div class="letter-sign script">I love you, always.<br>— Anushka</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn ghost" id="restartBtn">read it again ↺</button>
+    </div>
+  `);
+  document.getElementById('restartBtn').addEventListener('click', renderEnvelope);
+}
+
+/* ============ INIT ============ */
+renderEnvelope();
+</script>
+
+</body>
+</html>
