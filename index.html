@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday, My Love!</title>
+    <title>A Special Surprise For You ❤️</title>
     <style>
         * {
             margin: 0;
@@ -18,64 +18,38 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             padding: 20px;
             text-align: center;
         }
-        header {
-            margin-top: 40px;
-            animation: fadeIn 2s ease-in-out;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        p.subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.95;
-        }
-        .card {
+        .step-container {
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 25px;
+            padding: 30px;
             max-width: 400px;
             width: 100%;
-            margin-bottom: 30px;
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            text-align: left;
+            animation: fadeIn 0.5s ease-in-out;
         }
-        .card h2 {
-            text-align: center;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
+        h1, h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
-        .card p {
-            font-size: 1rem;
+        p {
+            font-size: 1.1rem;
             line-height: 1.6;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
-        .gallery {
+        .btn-group {
             display: flex;
             gap: 15px;
-            overflow-x: auto;
-            width: 100%;
-            max-width: 400px;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
+            justify-content: center;
+            margin-top: 20px;
         }
-        .gallery img {
-            width: 150px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            flex-shrink: 0;
-            border: 2px solid rgba(255,255,255,0.5);
-        }
-        .music-control {
+        .btn {
             background: #fff;
             color: #ff0844;
             border: none;
@@ -85,67 +59,271 @@
             border-radius: 30px;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            margin-bottom: 40px;
             transition: transform 0.2s;
         }
-        .music-control:active {
+        .btn:active {
             transform: scale(0.95);
         }
+        .btn-no {
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+        }
+        .hidden {
+            display: none !important;
+        }
+        #surpriseContent {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            width: 100%;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: left;
+        }
+        .card h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        .card p {
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+        .gallery {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            width: 100%;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        /* Photo item container for secret comment interaction */
+        .photo-card {
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 15px;
+            padding: 10px;
+            flex-shrink: 0;
+            width: 170px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 2px solid rgba(255,255,255,0.5);
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.2s;
+        }
+        .photo-card:active {
+            transform: scale(0.96);
+        }
+        .photo-card img {
+            width: 150px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+        .instruction-text {
+            font-size: 0.75rem;
+            opacity: 0.85;
+            margin-top: 6px;
+            font-style: italic;
+        }
+        .secret-comment {
+            display: none;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 8px;
+            border-radius: 8px;
+            animation: fadeIn 0.3s ease-in-out;
+            color: #ffe6e6;
+        }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
+            from { opacity: 0; transform: translateY(5px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Happy Birthday, My Love! ❤️</h1>
-        <p class="subtitle">You're my greatest adventure and my happy place.</p>
-    </header>
-
-    <!-- OUR STORY SECTION -->
-    <div class="card">
-        <h2>How We Met & Our Story</h2>
-        <p><strong>The Day We Met:</strong> From the very first moment our paths crossed, I knew my life was about to change forever. You brought a warmth into my world that I never knew existed.</p>
-        <p><strong>Why You Mean Everything:</strong> Through every laugh, every late-night conversation, and every beautiful memory we've built, you have shown me what true love feels like. Thank you for being my safe space and my best friend.</p>
+    <!-- STEP 1: GIFT BOX -->
+    <div id="step1" class="step-container">
+        <h1>🎁 A Special Gift For You</h1>
+        <p>Someone sent you a surprise click-through package. Are you ready to open it?</p>
+        <button class="btn" onclick="nextStep(2)">Open Gift 🔓</button>
     </div>
 
-    <!-- PHOTO GALLERY -->
-    <div class="gallery">
-        <!-- Replace the links below with your own direct image links -->
-        <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500" alt="Our Memory 1">
-        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Our Memory 2">
-        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500" alt="Our Memory 3">
+    <!-- STEP 2: DO YOU WANT TO SEE -->
+    <div id="step2" class="step-container hidden">
+        <h2>Hmm... Are you sure?</h2>
+        <p>Do you really want to see what's inside this surprise?</p>
+        <div class="btn-group">
+            <button class="btn" onclick="nextStep(3)">Yes! 😍</button>
+            <button class="btn btn-no" onclick="alert('Wrong answer! Try clicking Yes 😜')">No 🙄</button>
+        </div>
     </div>
 
-    <!-- BACKGROUND MUSIC (Taylor Swift - Love Story vibe audio) -->
-    <audio id="bgMusic" autoplay loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <!-- STEP 3: WILL YOU BE MINE -->
+    <div id="step3" class="step-container hidden">
+        <h2>Quick Question... ❤️</h2>
+        <p>Will you be mine forever and always?</p>
+        <div class="btn-group">
+            <button class="btn" onclick="nextStep(4)">Obviously Yes! 🥰</button>
+            <button class="btn btn-no" onclick="alert('Nice try, but you are already stuck with me! 😉')">No 🙃</button>
+        </div>
+    </div>
 
-    <button class="music-control" onclick="toggleMusic()">🎵 Play / Pause Music</button>
+    <!-- STEP 4: WILL YOU MARRY ME -->
+    <div id="step4" class="step-container hidden">
+        <h2>Wait, one more thing ring-ing... 💍</h2>
+        <p>Will you marry me?</p>
+        <div class="btn-group">
+            <button class="btn" onclick="nextStep(5)">A Thousand Times Yes! 💖</button>
+            <button class="btn btn-no" onclick="alert('Error 404: That option does not exist! Try Yes ❤️')">No 🙈</button>
+        </div>
+    </div>
+
+    <!-- STEP 5: FINAL CONFIRMATION -->
+    <div id="step5" class="step-container hidden">
+        <h2>Final Check! ✨</h2>
+        <p>Okay, are you *really* ready for your actual birthday surprise now?</p>
+        <div class="btn-group">
+            <button class="btn" onclick="revealSurprise()">Show Me! 🎉</button>
+        </div>
+    </div>
+
+    <!-- THE ACTUAL SURPRISE REVEAL -->
+    <div id="surpriseContent" class="hidden">
+        <header style="margin-top: 20px; margin-bottom: 20px;">
+            <h1>Happy Birthday, My Love! ❤️</h1>
+            <p class="subtitle" style="margin-bottom: 0;">You're my favorite human and my greatest blessing.</p>
+        </header>
+
+        <!-- PHOTO GALLERY WITH 5 PHOTOS & SECRET COMMENTS -->
+        <p style="font-size: 0.9rem; margin-bottom: 10px; opacity: 0.9;">💡 *Tap and hold any photo for 2 seconds to reveal a secret comment!*</p>
+        <div class="gallery">
+            
+            <!-- Photo 1 -->
+            <div class="photo-card" onmousedown="startHold(event, 'comm1')" ontouchstart="startHold(event, 'comm1')" onmouseup="endHold()" ontouchend="endHold()">
+                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500" alt="Photo 1">
+                <div class="instruction-text">Hold for secret...</div>
+                <div id="comm1" class="secret-comment">"This look completely stole my heart from day one. You look amazing here!"</div>
+            </div>
+
+            <!-- Photo 2 -->
+            <div class="photo-card" onmousedown="startHold(event, 'comm2')" ontouchstart="startHold(event, 'comm2')" onmouseup="endHold()" ontouchend="endHold()">
+                <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Photo 2">
+                <div class="instruction-text">Hold for secret...</div>
+                <div id="comm2" class="secret-comment">"Look at that smile! Exactly what brightens up my darkest days."</div>
+            </div>
+
+            <!-- Photo 3 -->
+            <div class="photo-card" onmousedown="startHold(event, 'comm3')" ontouchstart="startHold(event, 'comm3')" onmouseup="endHold()" ontouchend="endHold()">
+                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500" alt="Photo 3">
+                <div class="instruction-text">Hold for secret...</div>
+                <div id="comm3" class="secret-comment">"One of my absolute favorite memories with you. Pure magic."</div>
+            </div>
+
+            <!-- Photo 4 -->
+            <div class="photo-card" onmousedown="startHold(event, 'comm4')" ontouchstart="startHold(event, 'comm4')" onmouseup="endHold()" ontouchend="endHold()">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Photo 4">
+                <div class="instruction-text">Hold for secret...</div>
+                <div id="comm4" class="secret-comment">"You always look so handsome/cute even when you aren't trying!"</div>
+            </div>
+
+            <!-- Photo 5 -->
+            <div class="photo-card" onmousedown="startHold(event, 'comm5')" ontouchstart="startHold(event, 'comm5')" onmouseup="endHold()" ontouchend="endHold()">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500" alt="Photo 5">
+                <div class="instruction-text">Hold for secret...</div>
+                <div id="comm5" class="secret-comment">"My favorite person, my partner in crime, my forever adventure."</div>
+            </div>
+
+        </div>
+
+        <!-- BIRTHDAY NOTE -->
+        <div class="card">
+            <h3>🎉 Happy Birthday Note</h3>
+            <p>Wishing the happiest birthday to the one who owns my heart. Today is all about celebrating you, your brilliant smile, and the incredible light you bring into every single room you enter.</p>
+        </div>
+
+        <!-- LOVE LETTER -->
+        <div class="card">
+            <h3>💌 A Love Letter To You</h3>
+            <p>My dearest love, writing this makes me realize how deeply intertwined my happiness is with yours. You are my safe harbor, my favorite distraction, and the person I want to share every milestone with. No matter where life takes us, my heart will always find its way back to you.</p>
+        </div>
+
+        <!-- BLESSING NOTE -->
+        <div class="card">
+            <h3>✨ A Blessing For You</h3>
+            <p>May this year bring you endless success, radiant health, and all the dreams your heart desires. I pray that life always treats you as kindly as you treat me, and that our bond grows stronger through every tomorrow.</p>
+        </div>
+
+        <!-- OUR STORY -->
+        <div class="card">
+            <h3>📖 Our Love Story</h3>
+            <p><strong>Where It All Began:</strong> I still remember our very first words, the sound of your voice across our first call—you standing amidst the hustle of an airport miles away, and me safely at home. Even then, distance meant nothing; you were already teaching me how vast and beautiful the world could feel just by talking to you.</p>
+            <p><strong>The Little Things & Grand Dreams:</strong> From those patient lessons across the miles to our quiet, precious little things, every moment has been magic. I dream of the day we lose ourselves in Japan together, playfully 'kidnapping' each other from reality, building a lifetime of adventures with just you and me.</p>
+        </div>
+
+        <!-- ROAST SECTION -->
+        <div class="card">
+            <h3>😜 A Little Roast For You</h3>
+            <p>Let's be honest for a second... you can be a total <em>gadha</em> sometimes with your silly habits and stubbornness! But hey, you happen to be my absolute favorite, cutest *gadha* in the entire world, and I wouldn't trade you for anyone else. 😉❤️</p>
+        </div>
+
+        <!-- TAYLOR SWIFT - LOVER AUDIO -->
+        <audio id="bgMusic" loop>
+            <source src="https://cdnsongs.com/music/data/English/2019/Lover/12/Lover.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
 
     <script>
-        const music = document.getElementById('bgMusic');
-        const button = document.querySelector('.music-control');
-
-        // Attempt to auto-play on load
-        window.addEventListener('DOMContentLoaded', () => {
-            music.play().catch(error => {
-                console.log("Autoplay blocked by browser. User interaction needed.");
-            });
-        });
-
-        function toggleMusic() {
-            if (music.paused) {
-                music.play();
-                button.textContent = "⏸️ Pause Music";
-            } else {
-                music.pause();
-                button.textContent = "🎵 Play Music";
+        function nextStep(stepNumber) {
+            for (let i = 1; i <= 5; i++) {
+                let el = document.getElementById('step' + i);
+                if (el) el.classList.add('hidden');
             }
+            let target = document.getElementById('step' + stepNumber);
+            if (target) target.classList.remove('hidden');
+        }
+
+        function revealSurprise() {
+            document.getElementById('step5').classList.add('hidden');
+            document.getElementById('surpriseContent').classList.remove('hidden');
+            
+            let music = document.getElementById('bgMusic');
+            music.play().catch(error => {
+                console.log("Audio autoplay prevented by mobile browser policy.");
+            });
+        }
+
+        // Hold-to-reveal secret comments script
+        let holdTimer;
+        function startHold(event, commentId) {
+            event.preventDefault();
+            holdTimer = setTimeout(() => {
+                let commentEl = document.getElementById(commentId);
+                if (commentEl) {
+                    if (commentEl.style.display === "block") {
+                        commentEl.style.display = "none";
+                    } else {
+                        commentEl.style.display = "block";
+                    }
+                }
+            }, 1000); // holds for 1 second to unlock comment
+        }
+
+        function endHold() {
+            clearTimeout(holdTimer);
         }
     </script>
 </body>
