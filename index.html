@@ -11,198 +11,247 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
-            color: #4a4a4a;
+            font-family: 'Georgia', serif;
+            /* Warm, muted cream parchment background */
+            background: #fdfbf7;
+            background-image: radial-gradient(#e6dedd 0.75px, transparent 0.75px);
+            background-size: 15px 15px;
+            color: #3b2f2f;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Floating Flowers Flowing from TOP to BOTTOM */
+        /* Floating Soft Petals / Confetti */
         .flower {
             position: absolute;
-            width: 25px;
-            height: 25px;
-            animation: floatDown 6s linear infinite;
-            opacity: 0.7;
+            width: 20px;
+            height: 20px;
+            animation: floatDown 7s linear infinite;
+            opacity: 0.6;
             z-index: 0;
         }
         @keyframes floatDown {
             0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
-            20% { opacity: 0.9; }
+            20% { opacity: 0.7; }
             100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
         }
 
-        .step-container, .panel-card {
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(15px);
-            border-radius: 30px;
-            padding: 30px;
-            max-width: 420px;
+        /* Web Mockup Frame */
+        .browser-mockup {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            max-width: 440px;
             width: 100%;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-            border: 2px solid rgba(255, 255, 255, 0.9);
-            animation: fadeIn 0.4s ease-in-out;
-            margin-bottom: 20px;
+            box-shadow: 0 20px 40px rgba(59, 47, 47, 0.12);
+            border: 1px solid #e2d9d2;
+            overflow: hidden;
             z-index: 10;
+            margin-bottom: 20px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .browser-header {
+            background: #f4ede4;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e2d9d2;
+        }
+        .window-dots {
+            display: flex;
+            gap: 6px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+        .watermark {
+            font-size: 0.75rem;
+            color: #8c7a70;
+            font-family: monospace;
+            letter-spacing: 0.5px;
         }
 
-        /* Realistic Pink Letter Styling */
+        .browser-body {
+            padding: 25px;
+        }
+
+        /* Vintage Envelope Initial Slide */
         .envelope-card {
-            background: #ffb6c1;
-            border: 3px dashed #ff69b4;
-            border-radius: 25px;
-            padding: 35px 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            position: relative;
+            background: #fff9f5;
+            border: 2px dashed #d8a4a4;
+            border-radius: 20px;
+            padding: 30px 20px;
         }
         .envelope-flap {
-            font-size: 2rem;
-            color: #d81b60;
+            font-size: 2.2rem;
             margin-bottom: 10px;
         }
         .heart-seal {
-            background: #ff1493;
+            background: #b85d59;
             color: white;
-            width: 70px;
-            height: 70px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin: 20px auto;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.5);
+            box-shadow: 0 4px 15px rgba(184, 93, 89, 0.4);
             transition: transform 0.2s;
             animation: pulse 1.5s infinite;
         }
-        .heart-seal:active {
-            transform: scale(0.9);
-        }
+        .heart-seal:active { transform: scale(0.9); }
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            50% { transform: scale(1.08); }
             100% { transform: scale(1); }
         }
         .click-return-text {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: bold;
-            color: #880e4f;
+            color: #8c5a55;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             margin-top: 5px;
+            font-family: monospace;
         }
 
-        /* Respective Pastel Colors */
-        .pastel-pink { background: rgba(254, 226, 226, 0.95); border-color: #fca5a5; }
-        .pastel-purple { background: rgba(243, 232, 255, 0.95); border-color: #d8b4fe; }
-        .pastel-green { background: rgba(209, 250, 229, 0.95); border-color: #6ee7b7; }
-        .pastel-orange { background: rgba(254, 243, 199, 0.95); border-color: #fde047; }
-        .pastel-blue { background: rgba(224, 242, 254, 0.95); border-color: #7dd3fc; }
-
+        /* Typography & Headings */
         h1, h2, h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #be185d;
+            font-family: 'Georgia', serif;
+            color: #4a2e2b;
+            margin-bottom: 12px;
+            font-weight: normal;
         }
         p {
-            font-size: 1.05rem;
+            font-size: 1rem;
             line-height: 1.6;
             margin-bottom: 15px;
-            color: #4b5563;
+            color: #5a4a42;
         }
+
+        /* Coquette Buttons */
         .btn-group {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             justify-content: center;
             align-items: center;
-            margin-top: 20px;
+            margin-top: 15px;
             flex-wrap: wrap;
         }
         .quiz-options {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
             margin-top: 15px;
         }
         .quiz-btn {
-            background: rgba(255, 255, 255, 0.85);
-            border: 2px solid #f472b6;
-            color: #be185d;
-            padding: 12px 15px;
-            border-radius: 15px;
+            background: #fff;
+            border: 1.5px solid #d8a4a4;
+            color: #6b3e3b;
+            padding: 10px 14px;
+            border-radius: 12px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 500;
+            font-family: 'Georgia', serif;
             transition: all 0.2s;
             text-align: left;
         }
         .quiz-btn:hover {
-            background: #f472b6;
+            background: #d8a4a4;
             color: #fff;
         }
         .btn {
-            background: #f472b6;
+            background: #b85d59;
             color: #fff;
             border: none;
-            padding: 12px 25px;
-            font-size: 1rem;
+            padding: 10px 22px;
+            font-size: 0.95rem;
             font-weight: bold;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.4);
-            transition: all 0.3s ease;
-        }
-        .btn:active {
-            transform: scale(0.95);
-        }
-        .btn-no {
-            background: #cbd5e1;
-            color: #334155;
-        }
-        .hidden {
-            display: none !important;
-        }
-
-        /* Single Photo Reveal Styling */
-        .single-photo-card {
-            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(184, 93, 89, 0.3);
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+        }
+        .btn:active { transform: scale(0.95); }
+        .btn-no {
+            background: #d5c3bd;
+            color: #4a3b35;
+        }
+        .hidden { display: none !important; }
+
+        /* Single Photo Reveal Layout */
+        .single-photo-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 12px;
             width: 100%;
-            max-width: 320px;
-            margin: 0 auto 15px auto;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-            border: 2px solid #fbcfe8;
+            max-width: 300px;
+            margin: 0 auto 12px auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border: 1px solid #e6dedd;
         }
         .single-photo-card img {
             width: 100%;
-            height: 260px;
+            height: 240px;
             object-fit: cover;
-            border-radius: 12px;
+            border-radius: 10px;
             display: block;
         }
         .secret-comment-box {
             display: none;
-            margin-top: 12px;
-            font-size: 0.9rem;
-            background: #fff1f2;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            background: #fdf2f2;
             padding: 10px;
-            border-radius: 10px;
-            color: #9f1239;
-            border: 1px dashed #fda4af;
+            border-radius: 8px;
+            color: #8c3f3b;
+            border: 1px dashed #d8a4a4;
             animation: fadeIn 0.3s ease-in-out;
         }
 
+        /* Real Parchment Love Letter */
+        .real-letter-card {
+            background: #fffdf9;
+            border: 2.5px solid #d8a4a4;
+            color: #3b2f2f;
+            text-align: left;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            max-height: 420px;
+            overflow-y: auto;
+            border-radius: 16px;
+        }
+        .real-letter-card h2 {
+            font-family: 'Georgia', serif;
+            color: #7c3f3b;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+        .real-letter-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #4a3b35;
+        }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
@@ -210,195 +259,223 @@
 <body>
 
     <script>
-        const symbols = ['🌸', '🌷', '💮', '🌺', '🌼', '💖'];
-        for (let i = 0; i < 15; i++) {
+        const symbols = ['🌸', '🩰', '🎀', '🍒', '💌', '✨'];
+        for (let i = 0; i < 14; i++) {
             let f = document.createElement('div');
             f.className = 'flower';
             f.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
             f.style.left = Math.random() * 100 + 'vw';
-            f.style.animationDuration = (Math.random() * 4 + 4) + 's';
+            f.style.animationDuration = (Math.random() * 5 + 5) + 's';
             f.style.animationDelay = (Math.random() * 5) + 's';
-            f.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            f.style.fontSize = (Math.random() * 14 + 14) + 'px';
             document.body.appendChild(f);
         }
     </script>
 
-    <!-- STEP 1: REAL PINK LETTER WITH CLICKABLE HEART SEAL -->
-    <div id="step1" class="step-container envelope-card">
-        <div class="envelope-flap">✉️</div>
-        <h1>To My Dearest Arya Singh</h1>
-        <p style="color: #880e4f; font-weight: 500;">A special letter from Anushka. Click the heart below to open your surprise!</p>
-        
-        <div class="heart-seal" onclick="startMusicAndNext(2)">
-            ❤️
+    <!-- Browser Mockup Container -->
+    <div class="browser-mockup">
+        <div class="browser-header">
+            <div class="window-dots">
+                <div class="dot dot-red"></div>
+                <div class="dot dot-yellow"></div>
+                <div class="dot dot-green"></div>
+            </div>
+            <div class="watermark">@CRAFTSWITHGELLYY</div>
         </div>
-        <div class="click-return-text">Click to Open</div>
-    </div>
 
-    <!-- STEP 2: QUIZ Q1 - WILL YOU BE MINE (Pastel Purple) -->
-    <div id="step2" class="step-container pastel-purple hidden">
-        <h2>Quick Question... ❤️</h2>
-        <p>Will you be mine forever and always?</p>
-        <div class="btn-group">
-            <button id="yesBtn2" class="btn" onclick="nextStep(3)">Obviously Yes! 🥰</button>
-            <button id="noBtn2" class="btn btn-no" onclick="handleNo(2)">No 🙃</button>
-        </div>
-    </div>
+        <div class="browser-body">
 
-    <!-- STEP 3: QUIZ Q2 - WILL YOU MARRY ME (Pastel Green) -->
-    <div id="step3" class="step-container pastel-green hidden">
-        <h2>Wait, one more question... 💍</h2>
-        <p>Will you marry me?</p>
-        <div class="btn-group">
-            <button id="yesBtn3" class="btn" onclick="nextStep(4)">A Thousand Times Yes! 💖</button>
-            <button id="noBtn3" class="btn btn-no" onclick="handleNo(3)">No 🙈</button>
-        </div>
-    </div>
+            <!-- STEP 1: ENVELOPE & LETTER SLIDE -->
+            <div id="step1" class="envelope-card">
+                <div class="envelope-flap">💌</div>
+                <h1>To My Dearest Arya Singh</h1>
+                <p>A vintage surprise curated with love by Anushka.</p>
+                <div class="heart-seal" onclick="startMusicAndNext(2)">❤️</div>
+                <div class="click-return-text">Click the envelope to open</div>
+            </div>
 
-    <!-- STEP 4: QUIZ Q3 - VALUE MOST (Pastel Orange) -->
-    <div id="panelQ3" class="step-container pastel-orange hidden">
-        <h2>Relationship Quiz 📝</h2>
-        <p><strong>1. What do you value most in a relationship?</strong></p>
-        <div class="quiz-options">
-            <button class="quiz-btn" onclick="nextStep(5)">a) Trust 🤍</button>
-            <button class="quiz-btn" onclick="nextStep(5)">b) Love 🥰</button>
-            <button class="quiz-btn" onclick="nextStep(5)">c) Communication 🗣️</button>
-        </div>
-    </div>
+            <!-- STEP 2: QUIZ Q1 - WILL YOU BE MINE -->
+            <div id="step2" class="hidden">
+                <h2>Quick Question... 🩰</h2>
+                <p>Will you be mine forever and always?</p>
+                <div class="btn-group">
+                    <button id="yesBtn2" class="btn" onclick="nextStep(3)">Obviously Yes! 🥰</button>
+                    <button id="noBtn2" class="btn btn-no" onclick="handleNo(2)">No 🙃</button>
+                </div>
+            </div>
 
-    <!-- STEP 5: QUIZ Q4 - IDEAL DATE (Pastel Blue) -->
-    <div id="step5" class="step-container pastel-blue hidden">
-        <h2>Relationship Quiz 📝</h2>
-        <p><strong>2. What is your ideal date?</strong></p>
-        <div class="quiz-options">
-            <button class="quiz-btn" onclick="nextStep(6)">a) Dinner & movie 🍿</button>
-            <button class="quiz-btn" onclick="nextStep(6)">b) Adventure 🌍</button>
-            <button class="quiz-btn" onclick="nextStep(6)">c) Cozy night in 🌙</button>
-        </div>
-    </div>
+            <!-- STEP 3: QUIZ Q2 - WILL YOU MARRY ME -->
+            <div id="step3" class="hidden">
+                <h2>One More Little Secret... 💍</h2>
+                <p>Will you marry me?</p>
+                <div class="btn-group">
+                    <button id="yesBtn3" class="btn" onclick="nextStep(4)">A Thousand Times Yes! 💖</button>
+                    <button id="noBtn3" class="btn btn-no" onclick="handleNo(3)">No 🙈</button>
+                </div>
+            </div>
 
-    <!-- STEP 6: QUIZ Q5 - CONFLICTS (Pastel Pink) -->
-    <div id="step6" class="step-container pastel-pink hidden">
-        <h2>Relationship Quiz 📝</h2>
-        <p><strong>3. How do you handle conflicts?</strong></p>
-        <div class="quiz-options">
-            <button class="quiz-btn" onclick="nextStep(7)">a) Talk it out 💬</button>
-            <button class="quiz-btn" onclick="nextStep(7)">b) Take time and cool off 🧊</button>
-            <button class="quiz-btn" onclick="nextStep(7)">c) Avoid it 🏃‍♂️</button>
-        </div>
-    </div>
+            <!-- STEP 4: QUIZ Q3 - VALUE MOST -->
+            <div id="panelQ3" class="hidden">
+                <h2>Relationship Quiz 🎀</h2>
+                <p><strong>1. What do you value most in a relationship?</strong></p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="nextStep(5)">a) Trust 🤍</button>
+                    <button class="quiz-btn" onclick="nextStep(5)">b) Love 🥰</button>
+                    <button class="quiz-btn" onclick="nextStep(5)">c) Communication 🗣️</button>
+                </div>
+            </div>
 
-    <!-- STEP 7: QUIZ Q6 - PARTNER NEEDS (Pastel Purple) -->
-    <div id="step7" class="step-container pastel-purple hidden">
-        <h2>Relationship Quiz 📝</h2>
-        <p><strong>4. What do you need most from your partner?</strong></p>
-        <div class="quiz-options">
-            <button class="quiz-btn" onclick="nextStep(8)">a) Support 🤗</button>
-            <button class="quiz-btn" onclick="nextStep(8)">b) Attention 👀</button>
-            <button class="quiz-btn" onclick="nextStep(8)">c) Loyalty 🤝</button>
-        </div>
-    </div>
+            <!-- STEP 5: QUIZ Q4 - IDEAL DATE -->
+            <div id="step5" class="hidden">
+                <h2>Relationship Quiz 🎀</h2>
+                <p><strong>2. What is your ideal date?</strong></p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="nextStep(6)">a) Dinner & movie 🍿</button>
+                    <button class="quiz-btn" onclick="nextStep(6)">b) Adventure 🌍</button>
+                    <button class="quiz-btn" onclick="nextStep(6)">c) Cozy night in 🌙</button>
+                </div>
+            </div>
 
-    <!-- STEP 8: QUIZ Q7 - 5 YEARS (Pastel Green) -->
-    <div id="step8" class="step-container pastel-green hidden">
-        <h2>Relationship Quiz 📝</h2>
-        <p><strong>5. Where do you see us in 5 years?</strong></p>
-        <div class="quiz-options">
-            <button class="quiz-btn" onclick="startSurpriseSequence()">a) Married 💍</button>
-            <button class="quiz-btn" onclick="startSurpriseSequence()">b) Living together 🏡</button>
-            <button class="quiz-btn" onclick="startSurpriseSequence()">c) Unstoppable together ✨</button>
-        </div>
-    </div>
+            <!-- STEP 6: QUIZ Q5 - CONFLICTS -->
+            <div id="step6" class="hidden">
+                <h2>Relationship Quiz 🎀</h2>
+                <p><strong>3. How do you handle conflicts?</strong></p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="nextStep(7)">a) Talk it out 💬</button>
+                    <button class="quiz-btn" onclick="nextStep(7)">b) Take time and cool off 🧊</button>
+                    <button class="quiz-btn" onclick="nextStep(7)">c) Avoid it 🏃‍♂️</button>
+                </div>
+            </div>
 
-    <!-- SURPRISE PANELS -->
+            <!-- STEP 7: QUIZ Q6 - PARTNER NEEDS -->
+            <div id="step7" class="hidden">
+                <h2>Relationship Quiz 🎀</h2>
+                <p><strong>4. What do you need most from your partner?</strong></p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="nextStep(8)">a) Support 🤗</button>
+                    <button class="quiz-btn" onclick="nextStep(8)">b) Attention 👀</button>
+                    <button class="quiz-btn" onclick="nextStep(8)">c) Loyalty 🤝</button>
+                </div>
+            </div>
 
-    <!-- PANEL 1: BIRTHDAY NOTE (Pastel Pink) -->
-    <div id="panel1" class="panel-card pastel-pink hidden">
-        <h1>🎉 Happy Birthday, Arya!</h1>
-        <p>Wishing the happiest birthday to the one who owns my heart. Today is all about celebrating your brilliant smile and the light you bring into every room!</p>
-        <div class="btn-group">
-            <button class="btn" onclick="showNextPanel(2)">Do you want to see next? ✨</button>
-        </div>
-    </div>
+            <!-- STEP 8: QUIZ Q7 - 5 YEARS -->
+            <div id="step8" class="hidden">
+                <h2>Relationship Quiz 🎀</h2>
+                <p><strong>5. Where do you see us in 5 years?</strong></p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="startSurpriseSequence()">a) Married 💍</button>
+                    <button class="quiz-btn" onclick="startSurpriseSequence()">b) Living together 🏡</button>
+                    <button class="quiz-btn" onclick="startSurpriseSequence()">c) Unstoppable together ✨</button>
+                </div>
+            </div>
 
-    <!-- PANEL 2: LOVE LETTER (Pastel Purple) -->
-    <div id="panel2" class="panel-card pastel-purple hidden">
-        <h1>💌 A Love Letter To You</h1>
-        <p>My dearest Arya, writing this makes me realize how deeply intertwined my happiness is with yours. You are my safe harbor, my favorite distraction, and my forever person.</p>
-        <div class="btn-group">
-            <button class="btn" onclick="showNextPanel(3)">Do you want to see next? ✨</button>
-        </div>
-    </div>
+            <!-- SURPRISE SLIDES -->
 
-    <!-- PANEL 3: BLESSING NOTE (Pastel Green) -->
-    <div id="panel3" class="panel-card pastel-green hidden">
-        <h1>✨ A Blessing For You</h1>
-        <p>May this year bring you endless success, radiant health, and all your heart's desires. I pray that life always treats you as kindly as you treat me!</p>
-        <div class="btn-group">
-            <button class="btn" onclick="showNextPanel(4)">Do you want to see next? ✨</button>
-        </div>
-    </div>
+            <!-- PANEL 1: BIRTHDAY NOTE -->
+            <div id="panel1" class="hidden">
+                <h2>🎉 Happy Birthday, Arya!</h2>
+                <p>Wishing the happiest birthday to the one who owns my heart. Today is all about celebrating your brilliant smile and the light you bring into every room!</p>
+                <div class="btn-group">
+                    <button class="btn" onclick="showNextPanel(2)">Next Slide ✨</button>
+                </div>
+            </div>
 
-    <!-- PANEL 4: OUR STORY (Pastel Orange) -->
-    <div id="panel4" class="panel-card pastel-orange hidden">
-        <h1>📖 Our Love Story</h1>
-        <p><strong>Where It Began:</strong> I still remember our first call—you at an airport miles away, me safely at home. From patient lessons across the miles to dreaming of Japan together, every moment with you is pure magic.</p>
-        <div class="btn-group">
-            <button class="btn" onclick="showNextPanel(5)">Do you want to see next? ✨</button>
-        </div>
-    </div>
+            <!-- PANEL 2: LOVE LETTER -->
+            <div id="panel2" class="hidden">
+                <h2>💌 A Love Letter To You</h2>
+                <p>My dearest Arya, writing this makes me realize how deeply intertwined my happiness is with yours. You are my safe harbor, my favorite distraction, and my forever person.</p>
+                <div class="btn-group">
+                    <button class="btn" onclick="showNextPanel(3)">Next Slide ✨</button>
+                </div>
+            </div>
 
-    <!-- PANEL 5: ROAST (Pastel Blue) -->
-    <div id="panel5" class="panel-card pastel-blue hidden">
-        <h1>😜 A Little Roast</h1>
-        <p>Let's be honest, Arya... you can be a total <em>gadha</em> sometimes with your stubbornness! But hey, you are my absolute favorite, cutest *gadha* in the world, and I wouldn't trade you for anything. 😉❤️</p>
-        <div class="btn-group">
-            <button class="btn" onclick="showNextPanel(6)">See Photo Surprise! 📸</button>
-        </div>
-    </div>
+            <!-- PANEL 3: BLESSING NOTE -->
+            <div id="panel3" class="hidden">
+                <h2>✨ A Blessing For You</h2>
+                <p>May this year bring you endless success, radiant health, and all your heart's desires. I pray that life always treats you as kindly as you treat me!</p>
+                <div class="btn-group">
+                    <button class="btn" onclick="showNextPanel(4)">Next Slide ✨</button>
+                </div>
+            </div>
 
-    <!-- PHOTO 1 REVEAL (Pastel Pink) -->
-    <div id="panel6" class="panel-card pastel-pink hidden">
-        <h1>📸 Memory 1 of 3</h1>
-        <div class="single-photo-card">
-            <img src="https://i.ibb.co/nM6WS7cs/image.jpg" alt="Photo 1">
-        </div>
-        <button class="btn" id="revealBtn1" onclick="revealPhotoComment(1)">Tap to Reveal Secret Message 💌</button>
-        <div id="comment1" class="secret-comment-box">
-            "This look completely stole my heart from day one, Arya!"
-        </div>
-        <div class="btn-group" id="nextPhotoBtn1" style="display:none; margin-top:15px;">
-            <button class="btn" onclick="showNextPhoto(2)">Next Photo ✨</button>
-        </div>
-    </div>
+            <!-- PANEL 4: OUR STORY -->
+            <div id="panel4" class="hidden">
+                <h2>📖 Our Love Story</h2>
+                <p><strong>Where It Began:</strong> I still remember our first call—you at an airport miles away, me safely at home. From patient lessons across the miles to dreaming of Japan together, every moment with you is pure magic.</p>
+                <div class="btn-group">
+                    <button class="btn" onclick="showNextPanel(5)">Next Slide ✨</button>
+                </div>
+            </div>
 
-    <!-- PHOTO 2 REVEAL (Pastel Purple) -->
-    <div id="panel7" class="panel-card pastel-purple hidden">
-        <h1>📸 Memory 2 of 3</h1>
-        <div class="single-photo-card">
-            <img src="https://i.ibb.co/rgJSpjr/image.jpg" alt="Photo 2">
-        </div>
-        <button class="btn" id="revealBtn2" onclick="revealPhotoComment(2)">Tap to Reveal Secret Message 💌</button>
-        <div id="comment2" class="secret-comment-box">
-            "Look at that smile! My absolute favorite view in the world."
-        </div>
-        <div class="btn-group" id="nextPhotoBtn2" style="display:none; margin-top:15px;">
-            <button class="btn" onclick="showNextPhoto(3)">Next Photo ✨</button>
-        </div>
-    </div>
+            <!-- PANEL 5: ROAST -->
+            <div id="panel5" class="hidden">
+                <h2>🍒 A Little Roast</h2>
+                <p>Let's be honest, Arya... you can be a total <em>gadha</em> sometimes with your stubbornness! But hey, you are my absolute favorite, cutest *gadha* in the world, and I wouldn't trade you for anything. XOXO</p>
+                <div class="btn-group">
+                    <button class="btn" onclick="showNextPanel(6)">Memories 📸</button>
+                </div>
+            </div>
 
-    <!-- PHOTO 3 REVEAL (Pastel Green) -->
-    <div id="panel8" class="panel-card pastel-green hidden">
-        <h1>📸 Memory 3 of 3</h1>
-        <div class="single-photo-card">
-            <img src="https://i.ibb.co/k61t7NRF/image.jpg" alt="Photo 3">
-        </div>
-        <button class="btn" id="revealBtn3" onclick="revealPhotoComment(3)">Tap to Reveal Secret Message 💌</button>
-        <div id="comment3" class="secret-comment-box">
-            "Pure magic whenever I am with you. Forever my home."
-        </div>
-        <div class="btn-group" id="finalSongBtn" style="display:none; margin-top:15px;">
-            <button class="btn" onclick="toggleMusic()">🎵 Play / Pause Song</button>
+            <!-- PHOTO 1 REVEAL -->
+            <div id="panel6" class="hidden">
+                <h2>📸 Memory 1 of 3</h2>
+                <div class="single-photo-card">
+                    <img src="https://i.ibb.co/nM6WS7cs/image.jpg" alt="Photo 1">
+                </div>
+                <button class="btn" id="revealBtn1" onclick="revealPhotoComment(1)">Tap for Secret Message 💌</button>
+                <div id="comment1" class="secret-comment-box">
+                    "This look completely stole my heart from day one, Arya!"
+                </div>
+                <div class="btn-group" id="nextPhotoBtn1" style="display:none; margin-top:12px;">
+                    <button class="btn" onclick="showNextPhoto(2)">Next Memory ✨</button>
+                </div>
+            </div>
+
+            <!-- PHOTO 2 REVEAL -->
+            <div id="panel7" class="hidden">
+                <h2>📸 Memory 2 of 3</h2>
+                <div class="single-photo-card">
+                    <img src="https://i.ibb.co/rgJSpjr/image.jpg" alt="Photo 2">
+                </div>
+                <button class="btn" id="revealBtn2" onclick="revealPhotoComment(2)">Tap for Secret Message 💌</button>
+                <div id="comment2" class="secret-comment-box">
+                    "Look at that smile! My absolute favorite view in the world."
+                </div>
+                <div class="btn-group" id="nextPhotoBtn2" style="display:none; margin-top:12px;">
+                    <button class="btn" onclick="showNextPhoto(3)">Next Memory ✨</button>
+                </div>
+            </div>
+
+            <!-- PHOTO 3 REVEAL -->
+            <div id="panel8" class="hidden">
+                <h2>📸 Memory 3 of 3</h2>
+                <div class="single-photo-card">
+                    <img src="https://i.ibb.co/k61t7NRF/image.jpg" alt="Photo 3">
+                </div>
+                <button class="btn" id="revealBtn3" onclick="revealPhotoComment(3)">Tap for Secret Message 💌</button>
+                <div id="comment3" class="secret-comment-box">
+                    "Pure magic whenever I am with you. Forever my home."
+                </div>
+                <div class="btn-group" id="nextPhotoBtn3" style="display:none; margin-top:12px;">
+                    <button class="btn" onclick="showNextPage(9)">Read Final Letter 💌</button>
+                </div>
+            </div>
+
+            <!-- PANEL 9: REAL HANDWRITTEN LETTER -->
+            <div id="panel9" class="real-letter-card hidden">
+                <h2>To my favorite person, ❤️</h2>
+                <p>I don't even know where to start because there are so many things I feel for you that words will never be enough.</p>
+                <p>Thank you for being my person, for choosing me, for loving me even on the days I'm hard to love. You make my world feel so safe, so warm, and so full of love.</p>
+                <p>You make the little things in life so much better just by being in it. Your kindness, your patience, your stupid jokes, the way you look at me like I'm the only one in the room... I'm so lucky to have you.</p>
+                <p>I promise to always be by your side, to support your dreams, to celebrate your wins, and to love you through everything. I can't wait to see what our future holds, but even more, I can't wait to continue making memories with you.</p>
+                <p>Thank you for being you and for being mine. 💖</p>
+                <p style="text-align: right; margin-top: 12px; font-weight: bold;">I love you, always. ✨</p>
+                
+                <div class="btn-group" style="margin-top: 20px;">
+                    <button class="btn" onclick="toggleMusic()">🎵 Play / Pause Song</button>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -439,12 +516,12 @@
             let noBtn = document.getElementById('noBtn' + step);
 
             if (noClicks[step] === 1) {
-                yesBtn.style.transform = "scale(1.3)";
-                noBtn.style.transform = "scale(0.7)";
+                yesBtn.style.transform = "scale(1.25)";
+                noBtn.style.transform = "scale(0.75)";
                 noBtn.innerText = "Are you sure? 🥺";
             } else if (noClicks[step] >= 2) {
                 noBtn.style.display = "none";
-                yesBtn.style.transform = "scale(1.5)";
+                yesBtn.style.transform = "scale(1.4)";
             }
         }
 
@@ -460,7 +537,7 @@
         }
 
         function showNextPanel(panelNum) {
-            for (let i = 1; i <= 8; i++) {
+            for (let i = 1; i <= 9; i++) {
                 let p = document.getElementById('panel' + i);
                 if (p) p.classList.add('hidden');
             }
@@ -475,15 +552,24 @@
             if (photoNum < 3) {
                 document.getElementById('nextPhotoBtn' + photoNum).style.display = 'flex';
             } else {
-                document.getElementById('finalSongBtn').style.display = 'flex';
+                document.getElementById('nextPhotoBtn3').style.display = 'flex';
             }
         }
 
         function showNextPhoto(photoNum) {
-            for (let i = 6; i <= 8; i++) {
-                document.getElementById('panel' + i).classList.add('hidden');
+            for (let i = 6; i <= 9; i++) {
+                let el = document.getElementById('panel' + i);
+                if(el) el.classList.add('hidden');
             }
             document.getElementById('panel' + (5 + photoNum)).classList.remove('hidden');
+        }
+
+        function showNextPage(panelNum) {
+            for (let i = 6; i <= 9; i++) {
+                let el = document.getElementById('panel' + i);
+                if(el) el.classList.add('hidden');
+            }
+            document.getElementById('panel' + panelNum).classList.remove('hidden');
         }
 
         const music = document.getElementById('bgMusic');
